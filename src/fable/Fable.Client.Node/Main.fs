@@ -83,7 +83,6 @@ let parseErrors errors =
                     er.EndLineAlternate er.EndColumn
                     er.FileName
         match er.Severity, er.ErrorNumber with
-        | _, 40 -> true, "Recursive value definitions are not supported" + loc // See #237
         | FSharpErrorSeverity.Warning, _ -> false, er.Message + loc
         | FSharpErrorSeverity.Error, _ -> true, er.Message + loc
     errors
